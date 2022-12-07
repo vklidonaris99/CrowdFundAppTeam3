@@ -15,8 +15,9 @@ namespace CrowdFoundAppTeam3.Controllers
             _service = service;
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index()
-        {
+        {   
             return Ok(await _service.GetMostFundedProjectsAsync());
         }
     }

@@ -1,4 +1,4 @@
-﻿using CrowdFundAppTeam3.DTOs;
+﻿using CrowdFoundAppTeam3.DTOs;
 
 namespace CrowdFoundAppTeam3.DTOs
 {
