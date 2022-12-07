@@ -24,23 +24,13 @@ namespace CrowdFoundAppTeam3.Services
             {
 
 
-
-
                 FundingPackageTitle = fundingPackagedto.FundingPackageTitle,
-
-
 
                 FundingPackageDescription = fundingPackagedto.FundingPackageDescription,
 
-
-
                 RewardPackage = fundingPackagedto.RewardPackage,
 
-
-
                 Project = project
-
-
 
             };
 
