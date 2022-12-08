@@ -1,0 +1,48 @@
+﻿@page
+@model CrowdFoundAppTeam3.Pages.Projects.CreateModel
+@{
+    ViewData["Title"] = "Create Project";
+}
+
+<h1>Create Project</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp - validation - summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Project.Title" class="control-label">Project Title</label>
+                <input asp-for="Project.Title" class="form-control" />
+                <span asp-validation-for="Project.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Project.Description" class="control-label">Project Description</label>
+                <input asp-for="Project.Description" class="form-control" />
+                <span asp-validation-for="Project.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Project.ProjectCreatorId" class="control-label">Project ProjectCreatorId</label>
+                <input asp-for="Project.ProjectCreatorId" class="form-control" />
+                <span asp-validation-for="Project.ProjectCreatorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Project.ProjectCategory" class="control-label">Project ProjectCategory</label>
+                <input asp-for="Project.ProjectCategory" class="form-control" />
+                <span asp-validation-for="Project.ProjectCategory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+    </div>
+    </form>
+</div>
+ </div>
+<div>
+    <a asp-page="Index"> All Projects </a>
+</div>
+@section Scripts
+    {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

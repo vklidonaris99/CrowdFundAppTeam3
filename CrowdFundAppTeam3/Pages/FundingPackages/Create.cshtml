@@ -11,14 +11,24 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="FundingPackage.FirstName" class="control=label"></label>
-                <input asp-for="FundingPackage.FirstName" class="form-control" />
-                <span asp-validation-for="FundingPackage.FirstName" class="text-danger"></span>
+                <label asp-for="FundingPackage.FundingPackageTitle" class="control=label">Funding Package Title</label>
+                <input asp-for="FundingPackage.FundingPackageTitle" class="form-control" />
+                <span asp-validation-for="FundingPackage.FundingPackageTitle" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FundingPackage.LastName" class="control=label"></label>
-                <input asp-for="FundingPackage.LastName" class="form-control" />
-                <span asp-validation-for="FundingPackage.LastName" class="text-danger"></span>
+                <label asp-for="FundingPackage.FundingPackageDescription" class="control=label">Funding Package Description</label>
+                <input asp-for="FundingPackage.FundingPackageDescription" class="form-control" />
+                <span asp-validation-for="FundingPackage.FundingPackageDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FundingPackage.RewardPackage" class="control=label">Reward Package</label>
+                <input asp-for="FundingPackage.RewardPackage" class="form-control" />
+                <span asp-validation-for="FundingPackage.RewardPackage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FundingPackage.ProjectId" class="control=label">Project Id</label>
+                <input asp-for="FundingPackage.ProjectId" class="form-control" />
+                <span asp-validation-for="FundingPackage.ProjectId" class="text-danger"></span>
             </div>
 
             <div class="form-group">
@@ -29,5 +39,5 @@
 </div>
 
 <div>
-    <a asp-page="Index">All FundingPacckage</a>
+    <a asp-page="Index">All FundingPacckages</a>
 </div>

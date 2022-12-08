@@ -1,0 +1,28 @@
+﻿@page
+@using CrowdFoundAppTeam3.Domain;
+@model CrowdFoundAppTeam3.Pages.Backers.IndexModel
+@{
+    ViewData["Title"] = "Backers";
+}
+
+<h1>Backers</h1>
+<a class="btn btn-primary" asp-page="Create">Add New</a>
+
+<table class="table">
+    <thead>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Details</th>
+    </thead>
+    <tbody>
+        @foreach (Backer actor in Model.Backers)
+        {
+            <tr>
+                <td>@actor.FirstName</td>
+                <td>@actor.LastName</td>
+                <td><a asp-page="Details" asp-route-Id="@actor.Id">Details</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -11,7 +11,7 @@ namespace CrowdFoundAppTeam3.DTOs
 
         public string? Description { get; set; }
 
-        //public int ProjectCreatorId { get; set; }
+        public int ProjectCreatorId { get; set; }
 
         public ProjectCategory ProjectCategory { get; set; }
 

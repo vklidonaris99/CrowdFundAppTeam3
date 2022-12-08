@@ -20,7 +20,7 @@ namespace CrowdFoundAppTeam3.Pages.FundingPackages
         {
             Context.FundingPackages.Add(FundingPackages);
             await Context.SaveChangesAsync();
-            return RedirectToPage("/Index");
+            return RedirectToPage("/FundingPackage/Create");
         }
     }
 }
