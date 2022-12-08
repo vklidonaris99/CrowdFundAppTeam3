@@ -2,6 +2,7 @@ using CrowdFoundAppTeam3.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using CrowdFoundAppTeam3.Domain;
+using CrowdFoundAppTeam3.DTOs;
 
 namespace CrowdFoundAppTeam3.Pages.Backers
 {
@@ -15,6 +16,11 @@ namespace CrowdFoundAppTeam3.Pages.Backers
         {
             Context = context;
         }
+
+        //public async Task<ActionResult<List<BackerDto>>> Get()
+        //{
+          
+        //}
 
         public async Task<ActionResult> OnPost()
         {
