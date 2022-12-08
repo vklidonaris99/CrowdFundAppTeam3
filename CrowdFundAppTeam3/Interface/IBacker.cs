@@ -7,7 +7,7 @@ namespace CrowdFoundAppTeam3.Interface
 
         //public Task<BackerDto?> GetBackerAsync(BackerDto backer);
 
-        public Task<BackerDto> CreateBackerAsync(BackerDto backer);
+        public Task<BackerDtoFlat> CreateBackerAsync(BackerDtoFlat backer);
 
         public Task<List<BackerDto>> GetAllBackerAsync();
 

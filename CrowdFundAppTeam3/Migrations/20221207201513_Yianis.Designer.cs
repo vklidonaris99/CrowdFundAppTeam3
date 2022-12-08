@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CrowdFoundAppTeam3.Migrations
 {
     [DbContext(typeof(CrowdFundDbContext))]
-    [Migration("20221207182855_Yianis")]
+    [Migration("20221207201513_Yianis")]
     partial class Yianis
     {
         /// <inheritdoc />

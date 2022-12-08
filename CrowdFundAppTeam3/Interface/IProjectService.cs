@@ -9,7 +9,7 @@ namespace CrowdFoundAppTeam3.Interface
 
         public Task<ProjectDto> GetProjectByCategoryAsync(ProjectCategory projectCategory);
 
-        public Task<ProjectDto> CreateProjectAsync(ProjectDto projectdto);
+        public Task<ProjectDtoWithoutBacker> CreateProjectAsync(ProjectDtoWithoutBacker projectdto);
 
         public Task<List<ProjectDto>> SearchAsync(string Title, string Description);
 

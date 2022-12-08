@@ -1,4 +1,5 @@
 ﻿using CrowdFoundAppTeam3.DTOs;
+using CrowdFoundAppTeam3.Interface;
 using CrowdFoundAppTeam3.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,9 +10,9 @@ namespace CrowdFoundAppTeam3.Controllers
     [ApiController]
     public class BackerController : ControllerBase
     {
-        private readonly BackerService _service;
+        private readonly IBacker _service;
 
-        public BackerController(BackerService service)
+        public BackerController(IBacker service)
         {
             _service = service;
         }
@@ -26,14 +27,13 @@ namespace CrowdFoundAppTeam3.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<BackerDto>> Post(BackerDto dto)
+        public async Task<ActionResult<BackerDtoFlat>> Post(BackerDtoFlat dto)
         {
-            BackerDto? result = await _service.CreateBackerAsync(dto);
+            BackerDtoFlat? result = await _service.CreateBackerAsync(dto);
             if (result == null)
-                return NotFound("The specified Backer Id is invalid or the Backer has been removed. Could not create Backer.");
+                return NotFound("Could not create Backer.");
             return Ok(result);
         }
-        //commit 
     }
 }
 

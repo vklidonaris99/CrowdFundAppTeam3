@@ -12,6 +12,5 @@ namespace CrowdFoundAppTeam3.DTOs
 
         public int ProjectId { get; set; }
 
-
     }
 }

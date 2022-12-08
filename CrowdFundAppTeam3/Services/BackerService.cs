@@ -18,27 +18,30 @@ namespace CrowdFoundAppTeam3.Services
             _logger = logger;
         }
 
-        public async Task<BackerDto?> CreateBackerAsync(BackerDto BackerDto)
+        public async Task<BackerDtoFlat?> CreateBackerAsync(BackerDtoFlat backerDto)
         {
-            if (string.IsNullOrWhiteSpace(BackerDto.FirstName) ||
-                string.IsNullOrWhiteSpace(BackerDto.LastName) ||
-                string.IsNullOrWhiteSpace(BackerDto.Email))
+            if (string.IsNullOrWhiteSpace(backerDto.FirstName) ||
+                string.IsNullOrWhiteSpace(backerDto.LastName) ||
+                string.IsNullOrWhiteSpace(backerDto.Email) ||
+                string.IsNullOrWhiteSpace(backerDto.Password))
             {
                 _logger.LogError("Please insert all the parameters");
-                return null; ;
+                return null;
             }
 
             var newBacker = new Backer()
             {
-                FirstName = BackerDto.FirstName,
-                LastName = BackerDto.LastName,
-                Email = BackerDto.Email
+                FirstName = backerDto.FirstName,
+                LastName = backerDto.LastName,
+                Email = backerDto.Email,
+                Password = backerDto.Password
             };
 
             await _crowdFundDbContext.AddAsync(newBacker);
             await _crowdFundDbContext.SaveChangesAsync();
-            return newBacker.ConvertBacker();
+            return newBacker.ConvertBackerFlat();
         }
+
 
         public async Task<List<BackerDto>> GetAllBackerAsync()
         {

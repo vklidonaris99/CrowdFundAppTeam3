@@ -2,7 +2,11 @@
 using CrowdFoundAppTeam3.Domain;
 using CrowdFoundAppTeam3.DTOs;
 using CrowdFoundAppTeam3.Interface;
+using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System.ComponentModel.DataAnnotations;
+using System.Reflection;
 
 namespace CrowdFoundAppTeam3.Services
 {
@@ -22,18 +26,31 @@ namespace CrowdFoundAppTeam3.Services
         {
             if (string.IsNullOrWhiteSpace(projectCreatorDto.FirstName) ||
                 string.IsNullOrWhiteSpace(projectCreatorDto.LastName) ||
-                string.IsNullOrWhiteSpace(projectCreatorDto.Email))
+                string.IsNullOrWhiteSpace(projectCreatorDto.Email) ||
+                string.IsNullOrWhiteSpace(projectCreatorDto.Password))
             {
                 _logger.LogError("Please insert all the parameters");
-                return null; ;
+                return null;
             }
+
+            
 
             var newprojectCreator = new ProjectCreator()
             {
                 FirstName = projectCreatorDto.FirstName,
                 LastName = projectCreatorDto.LastName,
-                Email = projectCreatorDto.Email
+                Email = projectCreatorDto.Email,
+                Password = projectCreatorDto.Password
             };
+
+            var projectCreatorWithSameEmail = await _crowdFundDbContext.ProjectCreators.SingleOrDefaultAsync(pc => pc.Email == projectCreatorDto.Email);
+
+            if (projectCreatorWithSameEmail != null)
+            {
+                _logger.LogError("Project Creator with the same email aready exists");
+                    return null;
+            }
+
 
             await _crowdFundDbContext.AddAsync(newprojectCreator);
             await _crowdFundDbContext.SaveChangesAsync();

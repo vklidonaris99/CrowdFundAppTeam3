@@ -1,10 +1,7 @@
-﻿
-namespace CrowdFoundAppTeam3.Domain
+﻿namespace CrowdFoundAppTeam3.DTOs
 {
-    public class Backer
+    public class BackerDtoFlat
     {
-        public PaymentMethod PaymentMethod { get; set; }
-
         public int BackerId { get; set; }
 
         public string? FirstName { get; set; }
@@ -14,8 +11,5 @@ namespace CrowdFoundAppTeam3.Domain
         public string? Email { get; set; }
 
         public string? Password { get; set; }
-
-        public List<Project>? Projects { get; set; }
     }
 }
-

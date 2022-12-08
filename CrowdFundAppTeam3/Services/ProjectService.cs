@@ -17,7 +17,7 @@ namespace CrowdFoundAppTeam3.Services
             _crowdFundDbContext = dbcontext;
         }
 
-        public async Task<ProjectDto> CreateProjectAsync(ProjectDto projectdto)
+        public async Task<ProjectDtoWithoutBacker> CreateProjectAsync(ProjectDtoWithoutBacker projectdto)
         {
             var projectCreator = await _crowdFundDbContext
                 .ProjectCreators
@@ -38,7 +38,7 @@ namespace CrowdFoundAppTeam3.Services
             _crowdFundDbContext.Projects.Add(project);
             await _crowdFundDbContext.SaveChangesAsync();
 
-            return project.Convert();
+            return project.ConvertWithoutBacker();
         }
 
         public async Task<List<ProjectDto>> GetAllProjectAsync()

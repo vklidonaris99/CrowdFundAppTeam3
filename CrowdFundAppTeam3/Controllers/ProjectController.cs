@@ -46,10 +46,10 @@ namespace CrowdFoundAppTeam3.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ProjectDto>> Post(ProjectDto dto)
+        public async Task<ActionResult<ProjectDtoWithoutBacker>> Post(ProjectDtoWithoutBacker dto)
         {
 
-            ProjectDto? result = await _service.CreateProjectAsync(dto);
+            ProjectDtoWithoutBacker? result = await _service.CreateProjectAsync(dto);
             if (result == null) return NotFound("Could not create project.");
             return Ok(result);
         }

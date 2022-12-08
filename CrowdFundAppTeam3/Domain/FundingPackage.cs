@@ -3,7 +3,6 @@ namespace CrowdFoundAppTeam3.Domain
 {
     public class FundingPackage
     {
-
         public int FundingPackageId { get; set; }
 
         public string? FundingPackageTitle { get; set; }

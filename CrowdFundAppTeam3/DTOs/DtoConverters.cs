@@ -18,6 +18,17 @@ public static class DtoConverters
         };
     }
 
+    public static ProjectDtoWithoutBacker ConvertWithoutBacker(this Project project)
+    {
+        return new ProjectDtoWithoutBacker()
+        {
+            ProjectId = project.ProjectId,
+            Title = project.Title,
+            Description = project.Description,
+            ProjectCategory = project.ProjectCategory,
+        };
+    }
+
 
     public static ProjectDtoFlat ConvertPDtoFlat(this Project project)
     {
@@ -60,6 +71,17 @@ public static class DtoConverters
             FirstName = backer.FirstName,
             LastName = backer.LastName,
             Email = backer.Email
+        };
+    }
+
+    public static BackerDtoFlat ConvertBackerFlat(this Backer backer)
+    {
+        return new BackerDtoFlat()
+        {
+            FirstName = backer.FirstName,
+            LastName = backer.LastName,
+            Email = backer.Email,
+            Password = backer.Password
         };
     }
 }

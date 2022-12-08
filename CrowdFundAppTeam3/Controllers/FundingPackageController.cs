@@ -1,4 +1,5 @@
 ﻿using CrowdFoundAppTeam3.DTOs;
+using CrowdFoundAppTeam3.Interface;
 using CrowdFoundAppTeam3.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,12 +10,13 @@ namespace CrowdFoundAppTeam3.Controllers
     [ApiController]
     public class FundingPackageController : ControllerBase
     {
-        private readonly FundingPackageService _service;
+        private readonly IFundingPackage _service;
 
-        public FundingPackageController(FundingPackageService service)
+        public FundingPackageController(IFundingPackage service)
         {
             _service = service;
         }
+
         [HttpPost]
         public async Task<ActionResult<FundingPackageDto>> CreateFundingPackage(FundingPackageDto fundingPackageDto, int ProjectId)
         {

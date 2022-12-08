@@ -20,7 +20,9 @@ namespace CrowdFoundAppTeam3.Controllers
         public async Task<ActionResult<ProjectCreatorDto>> PostProjectCreator(ProjectCreatorDto projectCreatorDto)
         {
             ProjectCreatorDto? result = await service.CreateProjectCreatorAsync(projectCreatorDto);
-            if (result == null) return NotFound("The specified Project Creator Id is invalid or the Project Creator has been removed. Could not create Project Creator.");
+            if (result == null) 
+                return NotFound("Could not create Project Creator.");
+            //Check dublicate
             return Ok(result);
         }
     }

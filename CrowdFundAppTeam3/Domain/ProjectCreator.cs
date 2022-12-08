@@ -3,7 +3,6 @@ namespace CrowdFoundAppTeam3.Domain
 {
     public class ProjectCreator
     {
-
         public int ProjectCreatorId { get; set; }
 
         public string? FirstName { get; set; }
