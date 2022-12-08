@@ -12,6 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<CrowdFundDbContext>
     (options => options.UseSqlServer(builder.Configuration.GetConnectionString("CrowdFund")));
@@ -28,6 +29,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.MapRazorPages();
 
 app.UseHttpsRedirection();
 
