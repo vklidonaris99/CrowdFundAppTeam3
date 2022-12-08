@@ -17,16 +17,17 @@ namespace CrowdFoundAppTeam3.Pages.Backers
             Context = context;
         }
 
-        //public async Task<ActionResult<List<BackerDto>>> Get()
-        //{
-          
-        //}
+        public async Task<ActionResult<List<BackerDto>>> OnGet()
+        {
+            List<Backer> backers = new List<BackerDto>();  
+            
+        }
 
         public async Task<ActionResult> OnPost()
         {
             Context.Backers.Add(Backer);
             await Context.SaveChangesAsync();
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Backers/Create");
         }
     }
     }
