@@ -37,6 +37,15 @@ namespace CrowdFoundAppTeam3.Services
                 Password = backerDto.Password
             };
 
+
+            var backerWithSameEmail = await _crowdFundDbContext.Backers.SingleOrDefaultAsync(b => b.Email == backerDto.Email);
+
+            if (backerWithSameEmail != null)
+            {
+                _logger.LogError("Backer with the same email aready exists");
+                return null;
+            }
+
             await _crowdFundDbContext.AddAsync(newBacker);
             await _crowdFundDbContext.SaveChangesAsync();
             return newBacker.ConvertBackerFlat();
