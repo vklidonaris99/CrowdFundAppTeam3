@@ -12,15 +12,15 @@
     <thead>
     <th>First Name</th>
     <th>Last Name</th>
-    <th>Details</th>
+    <th>Email</th>
     </thead>
     <tbody>
-        @foreach (Backer actor in Model.Backers)
+        @foreach (Backer backer in CrowdFoundAppTeam3.Pages.Backers.IndexModel.Backers)
         {
             <tr>
-                <td>@actor.FirstName</td>
-                <td>@actor.LastName</td>
-                <td><a asp-page="Details" asp-route-Id="@actor.Id">Details</a></td>
+                <td>@backer.FirstName</td>
+                <td>@backer.LastName</td>
+                <td>@backer.Email</td>
             </tr>
         }
     </tbody>

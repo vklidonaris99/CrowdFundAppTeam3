@@ -19,11 +19,7 @@ namespace CrowdFoundAppTeam3.Pages.Projects
             Context = context;
         }
 
-        //public async Task<ActionResult<List<BackerDto>>> OnGet()
-        //{
-        //    List<Backer> backers = new List<Backer>();
 
-        //}
 
         public async Task<ActionResult> OnPost()
         {
